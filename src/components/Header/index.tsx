@@ -2,7 +2,14 @@ import styles from "./header.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 
-export function Header() {
+export function Header(assignment) {
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (assignment.trim() !== ''){
+      
+    }
+  }
   return (
     <header className={styles.header}>
       {/* This is simply to show you how to use helper functions */}
