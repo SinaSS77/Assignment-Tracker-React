@@ -1,8 +1,8 @@
+import React from "react";
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
-
-export function Assignments( assignments, onDeleteAssignment, onToggleCompleted ) {
+export function Assignments({ assignments, onDeleteAssignment, onToggleCompleted }) {
   return (
     <section className={styles.assignments}>
       <header className={styles.header}>
