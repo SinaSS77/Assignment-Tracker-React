@@ -1,11 +1,6 @@
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
-interface Assignment {
-  title: string;
-  completed: boolean;
-}
-
 
 export function Assignments( assignments, onDeleteAssignment, onToggleCompleted ) {
   return (
