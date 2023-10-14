@@ -1,20 +1,34 @@
 import { Header } from "./components/Header";
 import { Assignments } from "./components/Assignments";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
+
+interface Assignments {
+  title: string;
+  completed: boolean;
+}
 
 function App() {
-  const [assignment, setAssignment] = useState<string>('');
+  const [assignments, setAssignments] = useState<Assignments[]>([]);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setAssignment(e.target.value);
+  const addAssignment = (newAssignment: string) => {
+    setAssignments([...assignments, {title:newAssignment , completed:false}])
+  }
+  
+  const deleteAssignment = (index: number) => {
+    const updatedAssignments = [...assignments];
+    updatedAssignments.splice(index,1);
+    setAssignments(updatedAssignments);
   }
 
-
- 
+  const toggleCompleted = (index: number) => {
+    const updatedAssignments = [...assignments];
+    updatedAssignments[index].completed = !updatedAssignments[index].completed;
+    setAssignments(updatedAssignments);
+  }
   return (
     <>
-      <Header assignment={assignment} handleInputChange={handleInputChange}/>
-      <Assignments />
+      <Header onAddAssignment = {addAssignment} />
+      <Assignments assignments={assignments} onDeleteAssignment = {deleteAssignment} onToggleCompleted={toggleCompleted} />
     </>
   );
 }

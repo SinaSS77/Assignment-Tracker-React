@@ -1,7 +1,13 @@
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
-export function Assignments() {
+interface Assignment {
+  title: string;
+  completed: boolean;
+}
+
+
+export function Assignments( assignments, onDeleteAssignment, onToggleCompleted ) {
   return (
     <section className={styles.assignments}>
       <header className={styles.header}>
@@ -17,7 +23,14 @@ export function Assignments() {
       </header>
 
       <div className={styles.list}>
-        <Assignment />
+        {assignments.map((assignment, index) => (
+          <Assignment
+            key={index}
+            assignment={assignment}
+            onDelete={() => onDeleteAssignment(index)}
+            onToggleCompleted={() => onToggleCompleted(index)}
+          />
+        ))}
       </div>
     </section>
   );
