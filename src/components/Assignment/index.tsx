@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./assignment.module.css";
-import { TbTrash, AiOutlineCheckCircle } from "react-icons/tb";
+import { TbTrash } from "react-icons/tb";
+import { GiCheckMark } from "react-icons/gi";
 
 export function Assignment({ assignment, onDelete }) {
   const [completed, setCompleted] = useState(assignment.completed);
@@ -13,7 +14,7 @@ export function Assignment({ assignment, onDelete }) {
       <div className={styles.title}>
       <button onClick={handleToggleCompleted} className={styles.checkContainer}>
           <div >
-            {completed && <AiOutlineCheckCircle className="svg"/>}
+            {completed && <GiCheckMark className={styles.svg}/>}
           </div>
         </button>
 

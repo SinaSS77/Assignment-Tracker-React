@@ -1,6 +1,11 @@
-import React from "react";
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
+
+interface AssignmentsProps {
+  assignments: { title: string; completed: boolean }[];
+  onDeleteAssignment: (index: number) => void;
+  onToggleCompleted: (index: number) => void;
+}
 
 export function Assignments({ assignments, onDeleteAssignment, onToggleCompleted }) {
   return (

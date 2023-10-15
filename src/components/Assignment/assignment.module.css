@@ -33,6 +33,7 @@ p.textCompleted {
 .title {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
 
 .checkContainer div {
@@ -45,7 +46,8 @@ p.textCompleted {
 .svg {
   width: 100%;
   height: 100%;
-  color: #5e60ce;
+  color: #ffffff;
+  
 }
 
 .deleteButton {
