@@ -3,7 +3,12 @@ import styles from "./assignment.module.css";
 import { TbTrash } from "react-icons/tb";
 import { GiCheckMark } from "react-icons/gi";
 
-export function Assignment({ assignment, onDelete }) {
+interface AssignmentProps {
+  assignment: { title: string; completed: boolean };
+  onDelete: () => void;
+}
+
+export function Assignment({ assignment, onDelete } : AssignmentProps) {
   const [completed, setCompleted] = useState(assignment.completed);
   const handleToggleCompleted = () => {
     setCompleted(!completed);

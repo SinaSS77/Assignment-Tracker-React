@@ -3,7 +3,11 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 import { useState } from "react";
 
-export function Header({onAddAssignment}) {
+interface HeaderProps {
+  onAddAssignment: (newAssignment: string) => void;
+}
+
+export function Header({onAddAssignment} : HeaderProps) {
 
   const [newAssignment, setNewAssignment] = useState ("");
   const isCreateDesabled = newAssignment.trim() === "";
