@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./assignment.module.css";
-import { TbTrash } from "react-icons/tb";
+import { TbTrash, AiOutlineCheckCircle } from "react-icons/tb";
 
 export function Assignment({ assignment, onDelete }) {
   const [completed, setCompleted] = useState(assignment.completed);
@@ -10,9 +10,11 @@ export function Assignment({ assignment, onDelete }) {
 
   return (
     <div className={styles.assignment}>
-      <div>
-        <button onClick={handleToggleCompleted} className={completed ? styles.checkContainer : ""}>
-          <div />
+      <div className={styles.title}>
+      <button onClick={handleToggleCompleted} className={styles.checkContainer}>
+          <div >
+            {completed && <AiOutlineCheckCircle className="svg"/>}
+          </div>
         </button>
 
         <p>{assignment.title}</p>

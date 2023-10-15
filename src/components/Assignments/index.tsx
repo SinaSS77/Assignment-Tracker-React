@@ -8,12 +8,12 @@ export function Assignments({ assignments, onDeleteAssignment, onToggleCompleted
       <header className={styles.header}>
         <div>
           <p>Created Assignments</p>
-          <span>1</span>
+          <span>{assignments.length}</span>
         </div>
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>1 of 1</span>
+          <span>1 of {assignments.length}</span>
         </div>
       </header>
 
