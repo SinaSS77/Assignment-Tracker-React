@@ -6,12 +6,14 @@ import { GiCheckMark } from "react-icons/gi";
 interface AssignmentProps {
   assignment: { title: string; completed: boolean };
   onDelete: () => void;
+  onToggleCompleted: () => void;
 }
 
-export function Assignment({ assignment, onDelete } : AssignmentProps) {
+export function Assignment({ assignment, onDelete, onToggleCompleted } : AssignmentProps) {
   const [completed, setCompleted] = useState(assignment.completed);
   const handleToggleCompleted = () => {
     setCompleted(!completed);
+    onToggleCompleted();
   };
 
   return (

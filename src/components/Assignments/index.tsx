@@ -1,8 +1,13 @@
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
+interface AssignmentItem {
+  title: string;
+  completed: boolean;
+}
+
 interface AssignmentsProps {
-  assignments: { title: string; completed: boolean; }[];
+  assignments: AssignmentItem[];
   onDeleteAssignment: (index: number) => void;
   onToggleCompleted: (index: number) => void;
 }
@@ -12,6 +17,8 @@ export function Assignments({
   onDeleteAssignment,
   onToggleCompleted,
 }: AssignmentsProps) {
+  const completedAssignments = assignments.filter((assignment) => assignment.completed);
+
   return (
     <section className={styles.assignments}>
       <header className={styles.header}>
@@ -22,7 +29,9 @@ export function Assignments({
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>1 of {assignments.length}</span>
+          <span>
+            {completedAssignments.length} of {assignments.length}
+          </span>
         </div>
       </header>
 
@@ -31,8 +40,8 @@ export function Assignments({
           <Assignment
             key={index}
             assignment={assignment}
-            onDelete={() => onDeleteAssignment(index)}
             onToggleCompleted={() => onToggleCompleted(index)}
+            onDelete={() => onDeleteAssignment(index)}
           />
         ))}
       </div>
